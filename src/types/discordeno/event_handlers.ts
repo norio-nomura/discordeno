@@ -94,7 +94,7 @@ export type EventHandlersDefinitions = {
   /** Sent when a message is deleted. */
   messageDelete: [partial: { id: string; channel: DiscordenoChannel }, message?: DiscordenoMessage];
   /** Sent when a message is updated. */
-  messageUpdate: [message: DiscordenoMessage, oldMessage: DiscordenoMessage];
+  messageUpdate: [message: DiscordenoMessage, oldMessage?: DiscordenoMessage];
   /** Sent when a user updates its nickname */
   nicknameUpdate: [guild: DiscordenoGuild, member: DiscordenoMember, nickname: string, oldNickname?: string];
   /** A user's presence is their current state on a guild. This event is sent when a user's presence or info, such as name or avatar, is updated. */
