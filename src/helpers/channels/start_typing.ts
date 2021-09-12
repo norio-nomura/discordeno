@@ -33,5 +33,5 @@ export async function startTyping(channelId: bigint) {
     }
   }
 
-  return await rest.runMethod<undefined>("post", endpoints.CHANNEL_TYPING(channelId));
+  return await rest.runMethod<undefined>("post", endpoints.CHANNEL_TYPING(channelId), "");
 }
