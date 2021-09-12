@@ -92,7 +92,7 @@ export type EventHandlersDefinitions = {
   /** Sent when a message is created. */
   messageCreate: [message: DiscordenoMessage];
   /** Sent when a message is deleted. */
-  messageDelete: [partial: { id: string; channel: DiscordenoChannel }, message?: DiscordenoMessage];
+  messageDelete: [partial: { id: string; channelId: string }, message?: DiscordenoMessage, channel?: DiscordenoChannel];
   /** Sent when a message is updated. */
   messageUpdate: [message: DiscordenoMessage, oldMessage: DiscordenoMessage];
   /** Sent when a user updates its nickname */
