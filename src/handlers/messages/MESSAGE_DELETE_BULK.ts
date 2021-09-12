@@ -6,12 +6,12 @@ import { snowflakeToBigint } from "../../util/bigint.ts";
 
 export async function handleMessageDeleteBulk(data: DiscordGatewayPayload) {
   const payload = data.d as MessageDeleteBulk;
+  const channelId = payload.channelId;
   const channel = await cacheHandlers.get("channels", snowflakeToBigint(payload.channelId));
-  if (!channel) return;
 
   return Promise.all(
     payload.ids.map(async (id) => {
-      eventHandlers.messageDelete?.({ id, channel }, await cacheHandlers.get("messages", snowflakeToBigint(id)));
+      eventHandlers.messageDelete?.({ id, channelId }, await cacheHandlers.get("messages", snowflakeToBigint(id)), channel);
       await cacheHandlers.delete("messages", snowflakeToBigint(id));
     })
   );
